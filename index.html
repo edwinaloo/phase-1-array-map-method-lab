@@ -1,13 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>JavaScript Lab</title>
-</head>
-<body>
-  hello
-  <script type="text/javascript" src="index.js"></script>
-</body>
+<html>
+  <head>
+    <title>Formatted Tutorial Titles</title>
+  </head>
+  <body>
+    <h1>Formatted Tutorial Titles</h1>
+    <ul id="tutorial-list"></ul>
+    
+    <script>
+      // define the tutorials array
+      const tutorials = [
+        "what does the this keyword mean?",
+        "What is the Constructor OO pattern?",
+        "implementing Blockchain Web API",
+        "The Test Driven Development Workflow",
+        "What is NaN and how Can we Check for it",
+        "What is the difference between stopPropagation and preventDefault?",
+        "Immutable State and Pure Functions",
+        "what is the difference between == and ===?",
+        "what is the difference between event capturing and bubbling?",
+        "what is JSONP?",
+      ];
+      
+      // define the titleCased function
+      function titleCased() {
+        return tutorials.map(function(tutorial) {
+          return tutorial.split(" ").map(function(word) {
+            return word.toUpperCase();
+          }).join(" ");
+        });
+      }
+      
+      // call the titleCased function and store the results in a new array
+      const formattedTitles = titleCased();
+      
+      // get a reference to the tutorial list element
+      const tutorialList = document.getElementById("tutorial-list");
+      
+      // iterate over the formatted titles and add them to the list
+      formattedTitles.forEach(function(title) {
+        const listItem = document.createElement("li");
+        listItem.textContent = title;
+        tutorialList.appendChild(listItem);
+      });
+    </script>
+  </body>
 </html>
